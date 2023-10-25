@@ -1,4 +1,4 @@
-Abrir pasta 
+/*Abrir pasta 
 abrir gitbash
 npm create vite@latest
 nome do projeto..
@@ -11,4 +11,4 @@ npm run dev (vai mostrar ond está rodando a aplicação)
 
 npm install styled-components@latest (instalação do styled)
 
-quando vai receber estilização usar div se não somente o fragment <></>
+quando vai receber estilização usar div se não somente o fragment <></>*/
