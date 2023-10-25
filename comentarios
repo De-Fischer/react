@@ -1,0 +1,13 @@
+Abrir pasta 
+abrir gitbash
+npm create vite@latest
+nome do projeto..
+pasta do projeto
+selecionar react
+selecionar javascript
+cd (nome da pasta para instalar o node)
+npm install
+npm run dev (vai mostrar ond está rodando a aplicação)
+
+
+quando vai receber estilização usar div se não somente o fragment <></>
