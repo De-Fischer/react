@@ -1,11 +1,10 @@
-import "./style.css"
+import { Container } from "./styles";
 
-export function Details(){
-
-  /*quando vai receber estilização usar div se não somente o fragment <></>*/
-  return(
-    <>
-    <h1>Hello word</h1>
-    </>
+export function Details() {
+   /*quando vai receber estilização usar div se não somente o fragment <></>*/
+  return (
+    <Container>
+      <h1>Hello World</h1>
+    </Container>   
   )
-}
+};

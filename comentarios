@@ -9,5 +9,6 @@ cd (nome da pasta para instalar o node)
 npm install
 npm run dev (vai mostrar ond está rodando a aplicação)
 
+npm install styled-components@latest (instalação do styled)
 
 quando vai receber estilização usar div se não somente o fragment <></>
