@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container } from "./style";
 
 export function Details() {
    /*quando vai receber estilização usar div se não somente o fragment <></>*/
