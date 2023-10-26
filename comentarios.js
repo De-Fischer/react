@@ -1,4 +1,6 @@
-/*Abrir pasta 
+/*
+
+Abrir pasta 
 abrir gitbash
 npm create vite@latest
 nome do projeto..
@@ -11,4 +13,10 @@ npm run dev (vai mostrar ond está rodando a aplicação)
 
 npm install styled-components@latest (instalação do styled)
 
-quando vai receber estilização usar div se não somente o fragment <></>*/
+npm install react-icons --save
+https://react-icons.github.io/react-icons/ (para ver os ícones)
+
+quando vai receber estilização usar div se não somente o fragment <></>
+
+
+*/
