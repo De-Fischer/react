@@ -1,35 +1,37 @@
-import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from 'react-icons/fi';
+import { useState } from "react";
+import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 import { Link } from 'react-router-dom';
-import { Input } from '../../components/Input';
+import { useAuth } from "../../hooks/auth";
+import { api } from "../../services/api";
+import { Input } from "../../components/Input";
 import { Button } from '../../components/Button';
-import { useState } from 'react';
-import { useAuth } from '../../hooks/auth';
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 import { Container, Form, Avatar } from "./styles";
-import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
-import { api } from '../../services/api';
 
-export function Profile(){
+export function Profile() {
   const { user, updateProfile } = useAuth();
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [passwordOld, setPasswordOld] = useState();
-  const [passwordNew, setPasswordNew] = useState();
+  const [passwordOld, setPasswordOld] = useState("");
+  const [passwordNew, setPasswordNew] = useState("");
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
   const [avatar, setAvatar] = useState(avatarUrl);
   const [avatarFile, setAvatarFile] = useState(null);
 
-  async function handleUpdate(){
-    const user ={
+  async function handleUpdate() {
+    const updated = {
       name,
       email,
       password: passwordNew,
-      old_password: passwordOld,
-    }
+      old_password: passwordOld
+    };
 
-    await updateProfile({ user, avatarFile });
+    const userUpdated = Object.assign(user, updated);
+
+    await updateProfile({ user: userUpdated, avatarFile });
   }
 
   function handleChangeAvatar(event) {
@@ -40,28 +42,27 @@ export function Profile(){
     setAvatar(imagePreview);
   }
 
-  return(
+  return (
     <Container>
       <header>
         <Link to="/">
-          <FiArrowLeft />
+          <FiArrowLeft size={24} />
         </Link>
       </header>
-      <Form>
 
+      <Form>
         <Avatar>
-          <img 
-            src={avatar} 
-            alt="Foto do usuário" 
+          <img
+            src={avatar}
+            alt={user.name}
           />
 
-          <label htmlFor='avatar'>
+          <label htmlFor="avatar">
             <FiCamera />
 
-            {/*ficará invisível, serve somente abrir a janela e carregar a imagem*/}
-            <input 
-              id='avatar'
-              type='file'
+            <input
+              id="avatar"
+              type="file"
               onChange={handleChangeAvatar}
             />
           </label>
@@ -99,7 +100,6 @@ export function Profile(){
 
         <Button title="Salvar" onClick={handleUpdate} />
       </Form>
-
     </Container>
-  );
+  )
 }

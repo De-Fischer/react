@@ -51,14 +51,14 @@ function AuthProvider({ children }){
     setData({ user, token: data.token });
     alert("Perfil atualizado!")
   
-  } catch(error) {
-    if(error.response){
-      alert(error.response.data.message)
-    }else{
-      alert("Não foi possível atualizar o perfil");
+    } catch(error) {
+      if(error.response){
+        alert(error.response.data.message)
+      }else{
+        alert("Não foi possível atualizar o perfil");
+      }
     }
   }
-}
 
   useEffect(() => {
     const token = localStorage.getItem("@notes:token");
